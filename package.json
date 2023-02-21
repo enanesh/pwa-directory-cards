@@ -6,7 +6,7 @@
   "scripts": {
     "start:dev": "concurrently \"cd client && npm run start\" \"cd server && npm run dev\" ",
     "start": "npm run build && cd server && node server.js",
-    "start:prod": "npm run start" ,
+    "start:prod": "npm run start",
     "server": "cd server node server.js --ignore client",
     "build": "cd client && npm run build",
     "install": "cd server && npm i && cd ../client && npm i",
@@ -16,7 +16,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "idb": "^7.1.1"
   },
   "devDependencies": {
     "concurrently": "^5.2.0"
