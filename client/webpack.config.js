@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 const { InjectManifest } = require("workbox-webpack-plugin");
 
 module.exports = () => {
@@ -29,7 +30,25 @@ module.exports = () => {
       new InjectManifest({
         swSrc: './src-sw.js',
         swDest: 'src-sw.js'
-      })
+      }),
+      new WebpackPwaManifest({
+        name: 'Contacts',
+        short_name: 'Contacts',
+        description: 'Keep track of important contacts!',
+        background_color: '#7eb4e2',
+        theme_color: '#7eb4e2',
+        start_url: './',
+        publicPath: './',
+        icons: [
+          {
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
+          },
+        ],
+      }),
+
+
      
     ],
 
